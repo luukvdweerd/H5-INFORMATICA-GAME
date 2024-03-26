@@ -9,13 +9,13 @@ body, html {
     height: 500px;
     margin: 50px auto;
     border: 2px solid black;
-    background-image: url('background.jpg'); /* Replace 'background.jpg' with your background image */
+    background-image: url('repository game/interieurrontwerp-appartement-ou8nl2c2y2t7lzwm18cfnzkxi5ly40f1f1caemgrjk.jpg'); 
     background-size: cover;
 }
 #ball {
     width: 50px;
     height: 50px;
-    background-image: url('person.png'); /* Replace 'person.png' with your ball image */
+    background-image: url('repository game/1600943094096.jpg');
     background-size: cover;
     position: absolute;
     top: 50%;
@@ -25,7 +25,7 @@ body, html {
 #goal {
     width: 50px;
     height: 50px;
-    background-image: url('repository game/Afbeelding5.png'); /* Replace 'goal.png' with your goal image */
+    background-image: url('repository game/Afbeelding5.png');
     background-size: cover;
     position: absolute;
     top: 80%;
