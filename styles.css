@@ -29,10 +29,3 @@ body, html {
     top: 80%;
     left: 80%;
 }
-/* Voeg de volgende CSS-regels toe aan styles.css om de obstakels te stijlen */
-.obstacle {
-    width: 100px;
-    height: 20px;
-    background-color: blue;
-    position: absolute;
-}
