@@ -48,23 +48,35 @@ document.addEventListener("DOMContentLoaded", function() {
 // Voeg de volgende code toe aan script.js om de obstakels heen en weer te laten bewegen
 const obstacle1 = document.getElementById('obstacle1');
 const obstacle2 = document.getElementById('obstacle2');
-let obstacle1Direction = 1; // Richting van beweging (1 voor rechts, -1 voor links)
-let obstacle2Direction = -1; // Richting van beweging (1 voor rechts, -1 voor links)
+let obstacle1DirectionX = 1; // Richting van beweging horizontaal (1 voor rechts, -1 voor links)
+let obstacle1DirectionY = 1; // Richting van beweging verticaal (1 voor omlaag, -1 voor omhoog)
+let obstacle2DirectionX = -1; // Richting van beweging horizontaal (1 voor rechts, -1 voor links)
+let obstacle2DirectionY = -1; // Richting van beweging verticaal (1 voor omlaag, -1 voor omhoog)
 
 function moveObstacles() {
     const obstacle1Left = parseInt(getComputedStyle(obstacle1).left);
+    const obstacle1Top = parseInt(getComputedStyle(obstacle1).top);
     const obstacle2Left = parseInt(getComputedStyle(obstacle2).left);
+    const obstacle2Top = parseInt(getComputedStyle(obstacle2).top);
 
     // Beweeg obstakel 1
-    obstacle1.style.left = (obstacle1Left + obstacle1Direction * 5) + 'px';
+    obstacle1.style.left = (obstacle1Left + obstacle1DirectionX * 5) + 'px';
+    obstacle1.style.top = (obstacle1Top + obstacle1DirectionY * 5) + 'px';
     if (obstacle1Left <= 0 || obstacle1Left >= gameContainer.clientWidth - obstacle1.clientWidth) {
-        obstacle1Direction *= -1; // Omkeren van richting bij bereiken van de rand
+        obstacle1DirectionX *= -1; // Omkeren van richting bij bereiken van de rand
+    }
+    if (obstacle1Top <= 0 || obstacle1Top >= gameContainer.clientHeight - obstacle1.clientHeight) {
+        obstacle1DirectionY *= -1; // Omkeren van richting bij bereiken van de rand
     }
 
     // Beweeg obstakel 2
-    obstacle2.style.left = (obstacle2Left + obstacle2Direction * 3) + 'px';
+    obstacle2.style.left = (obstacle2Left + obstacle2DirectionX * 3) + 'px';
+    obstacle2.style.top = (obstacle2Top + obstacle2DirectionY * 3) + 'px';
     if (obstacle2Left <= 0 || obstacle2Left >= gameContainer.clientWidth - obstacle2.clientWidth) {
-        obstacle2Direction *= -1; // Omkeren van richting bij bereiken van de rand
+        obstacle2DirectionX *= -1; // Omkeren van richting bij bereiken van de rand
+    }
+    if (obstacle2Top <= 0 || obstacle2Top >= gameContainer.clientHeight - obstacle2.clientHeight) {
+        obstacle2DirectionY *= -1; // Omkeren van richting bij bereiken van de rand
     }
 }
 
