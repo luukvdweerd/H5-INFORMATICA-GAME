@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener("DOMContentLoaded", function() {
     const ball = document.getElementById('ball');
     const goal = document.getElementById('goal');
@@ -6,32 +7,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // Beweging van de bal
     document.addEventListener('keydown', function(event) {
         const key = event.key;
-        const ballStyle = window.getComputedStyle(ball);
-        let ballLeft = parseInt(ballStyle.getPropertyValue('left'));
-        let ballTop = parseInt(ballStyle.getPropertyValue('top'));
+        const ballStyle = getComputedStyle(ball);
+        const ballLeft = parseInt(ballStyle.left);
+        const ballTop = parseInt(ballStyle.top);
 
         switch (key) {
             case 'ArrowUp':
-                ballTop -= 10;
+                if (ballTop > 0) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
+                    ball.style.top = (ballTop - 10) + 'px';
                 break;
             case 'ArrowDown':
-                ballTop += 10;
+                if (ballTop < gameContainer.clientHeight - ball.clientHeight) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
+                    ball.style.top = (ballTop + 10) + 'px';
                 break;
             case 'ArrowLeft':
-                ballLeft -= 10;
+                if (ballLeft > 0) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
+                    ball.style.left = (ballLeft - 10) + 'px';
                 break;
             case 'ArrowRight':
-                ballLeft += 10;
+                if (ballLeft < gameContainer.clientWidth - ball.clientWidth) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
+                    ball.style.left = (ballLeft + 10) + 'px';
                 break;
         }
-
-        // Controleer of de nieuwe positie van de bal binnen het game-container valt
-        if (ballLeft >= 0 && ballLeft <= gameContainer.clientWidth - ball.clientWidth &&
-            ballTop >= 0 && ballTop <= gameContainer.clientHeight - ball.clientHeight) {
-            ball.style.left = ballLeft + 'px';
-            ball.style.top = ballTop + 'px';
-        }
-
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
             alert('Gefeliciteerd! Je hebt gewonnen!');
