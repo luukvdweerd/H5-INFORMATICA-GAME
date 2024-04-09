@@ -45,3 +45,27 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.top > goalRect.bottom);
     }
 });
+// Voeg de volgende code toe aan script.js om de obstakels heen en weer te laten bewegen
+const obstacle1 = document.getElementById('obstacle1');
+const obstacle2 = document.getElementById('obstacle2');
+let obstacle1Direction = 1; // Richting van beweging (1 voor rechts, -1 voor links)
+let obstacle2Direction = -1; // Richting van beweging (1 voor rechts, -1 voor links)
+
+function moveObstacles() {
+    const obstacle1Left = parseInt(getComputedStyle(obstacle1).left);
+    const obstacle2Left = parseInt(getComputedStyle(obstacle2).left);
+
+    // Beweeg obstakel 1
+    obstacle1.style.left = (obstacle1Left + obstacle1Direction * 5) + 'px';
+    if (obstacle1Left <= 0 || obstacle1Left >= gameContainer.clientWidth - obstacle1.clientWidth) {
+        obstacle1Direction *= -1; // Omkeren van richting bij bereiken van de rand
+    }
+
+    // Beweeg obstakel 2
+    obstacle2.style.left = (obstacle2Left + obstacle2Direction * 3) + 'px';
+    if (obstacle2Left <= 0 || obstacle2Left >= gameContainer.clientWidth - obstacle2.clientWidth) {
+        obstacle2Direction *= -1; // Omkeren van richting bij bereiken van de rand
+    }
+}
+
+setInterval(moveObstacles, 30); // Roep moveObstacles functie elke 30 milliseconden op
