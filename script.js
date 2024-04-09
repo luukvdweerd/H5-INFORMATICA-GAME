@@ -1,42 +1,33 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const ball = document.getElementById('ball');
-    const goal = document.getElementById('goal');
-    const gameContainer = document.getElementById('game-container');
-
-    // Beweging van de bal
-    document.addEventListener('keydown', function(event) {
-        const key = event.key;
-        const ballStyle = getComputedStyle(ball);
-        const ballLeft = parseInt(ballStyle.left);
-        const ballTop = parseInt(ballStyle.top);
-
-        switch (key) {
-            case 'ArrowUp':
-                ball.style.top = (ballTop - 10) + 'px';
-                break;
-            case 'ArrowDown':
-                ball.style.top = (ballTop + 10) + 'px';
-                break;
-            case 'ArrowLeft':
-                ball.style.left = (ballLeft - 10) + 'px';
-                break;
-            case 'ArrowRight':
-                ball.style.left = (ballLeft + 10) + 'px';
-                break;
-        }
-        // Controleer winvoorwaarde
-        if (checkCollision(ball, goal)) {
-            alert('Gefeliciteerd! Je hebt gewonnen!');
-        }
-    });
-
-    // Controleer of de bal het doel bereikt
-    function checkCollision(ball, goal) {
-        const ballRect = ball.getBoundingClientRect();
-        const goalRect = goal.getBoundingClientRect();
-        return !(ballRect.right < goalRect.left || 
-                 ballRect.left > goalRect.right || 
-                 ballRect.bottom < goalRect.top || 
-                 ballRect.top > goalRect.bottom);
-    }
-});
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#game-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    border: 2px solid black;
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with your background image */
+    background-size: cover;
+}
+#ball {
+    width: 50px;
+    height: 50px;
+    background-image: url('person.png'); /* Replace 'person.png' with your ball image */
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#goal {
+    width: 50px;
+    height: 50px;
+    background-image: url('goal.png'); /* Replace 'goal.png' with your goal image */
+    background-size: cover;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+}
