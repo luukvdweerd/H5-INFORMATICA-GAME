@@ -9,14 +9,12 @@ body, html {
     height: 500px;
     margin: 50px auto;
     border: 2px solid black;
-    background-image: url('repository game/interieurrontwerp-appartement-ou8nl2c2y2t7lzwm18cfnzkxi5ly40f1f1caemgrjk.jpg'); 
-    background-size: cover;
 }
 #ball {
     width: 50px;
     height: 50px;
-    background-image: url('repository game/1600943094096.jpg');
-    background-size: cover;
+    background-color: red;
+    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,8 +23,7 @@ body, html {
 #goal {
     width: 50px;
     height: 50px;
-    background-image: url('repository game/Afbeelding5.png');
-    background-size: cover;
+    background-color: green;
     position: absolute;
     top: 80%;
     left: 80%;
