@@ -1,44 +1,30 @@
+/* styles.css */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
 }
-
 #game-container {
     position: relative;
     width: 500px;
     height: 500px;
     margin: 50px auto;
     border: 2px solid black;
-    overflow: hidden; /* Om te voorkomen dat de achtergrondafbeelding buiten het game-container wordt weergegeven */
 }
-
-#game-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('interieurrontwerp-appartement-ou8nl2c2y2t7lzwm18cfnzkxi5ly40f1f1caemgrjk.jpg'); 
-    background-size: cover;
-}
-
 #ball {
     width: 50px;
     height: 50px;
-    background-image: url('1600943094096.png'); /* Vervang '1600943094096.png' met de juiste naam van je balafbeelding */
+    background-color: red;
+    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%; /* Voeg een border-radius toe om de bal een cirkelvorm te geven */
 }
-
 #goal {
     width: 50px;
     height: 50px;
-    background-image: url('Afbeelding5.png'); /* Vervang 'Afbeelding5.png' met de juiste naam van je doelafbeelding */
+    background-color: green;
     position: absolute;
     top: 80%;
     left: 80%;
