@@ -40,24 +40,3 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.top > goalRect.bottom);
     }
 });
-// In de checkCollision functie, voeg logica toe om te controleren op botsingen met obstakels.
-function checkCollision(ball, goal) {
-    const ballRect = ball.getBoundingClientRect();
-    const goalRect = goal.getBoundingClientRect();
-    const obstacles = document.querySelectorAll('.obstacle');
-
-    for (let obstacle of obstacles) {
-        const obstacleRect = obstacle.getBoundingClientRect();
-        if (!(ballRect.right < obstacleRect.left || 
-              ballRect.left > obstacleRect.right || 
-              ballRect.bottom < obstacleRect.top || 
-              ballRect.top > obstacleRect.bottom)) {
-            return false; // Als er een botsing met een obstakel is, return false
-        }
-    }
-
-    return !(ballRect.right < goalRect.left || 
-             ballRect.left > goalRect.right || 
-             ballRect.bottom < goalRect.top || 
-             ballRect.top > goalRect.bottom);
-}
