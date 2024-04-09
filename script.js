@@ -6,24 +6,32 @@ document.addEventListener("DOMContentLoaded", function() {
     // Beweging van de bal
     document.addEventListener('keydown', function(event) {
         const key = event.key;
-        const ballStyle = getComputedStyle(ball);
-        const ballLeft = parseInt(ballStyle.left);
-        const ballTop = parseInt(ballStyle.top);
+        const ballStyle = window.getComputedStyle(ball);
+        let ballLeft = parseInt(ballStyle.getPropertyValue('left'));
+        let ballTop = parseInt(ballStyle.getPropertyValue('top'));
 
         switch (key) {
             case 'ArrowUp':
-                ball.style.top = (ballTop - 10) + 'px';
+                ballTop -= 10;
                 break;
             case 'ArrowDown':
-                ball.style.top = (ballTop + 10) + 'px';
+                ballTop += 10;
                 break;
             case 'ArrowLeft':
-                ball.style.left = (ballLeft - 10) + 'px';
+                ballLeft -= 10;
                 break;
             case 'ArrowRight':
-                ball.style.left = (ballLeft + 10) + 'px';
+                ballLeft += 10;
                 break;
         }
+
+        // Controleer of de nieuwe positie van de bal binnen het game-container valt
+        if (ballLeft >= 0 && ballLeft <= gameContainer.clientWidth - ball.clientWidth &&
+            ballTop >= 0 && ballTop <= gameContainer.clientHeight - ball.clientHeight) {
+            ball.style.left = ballLeft + 'px';
+            ball.style.top = ballTop + 'px';
+        }
+
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
             alert('Gefeliciteerd! Je hebt gewonnen!');
