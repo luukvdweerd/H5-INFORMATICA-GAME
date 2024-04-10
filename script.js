@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", function() {
     const ball = document.getElementById('ball');
     const goal = document.getElementById('goal');
@@ -13,25 +12,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
         switch (key) {
             case 'ArrowUp':
-                if (ballTop > 0) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
-                    ball.style.top = (ballTop - 10) + 'px';
+                ball.style.top = (ballTop - 10) + 'px';
                 break;
             case 'ArrowDown':
-                if (ballTop < gameContainer.clientHeight - ball.clientHeight) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
-                    ball.style.top = (ballTop + 10) + 'px';
+                ball.style.top = (ballTop + 10) + 'px';
                 break;
             case 'ArrowLeft':
-                if (ballLeft > 0) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
-                    ball.style.left = (ballLeft - 10) + 'px';
+                ball.style.left = (ballLeft - 10) + 'px';
                 break;
             case 'ArrowRight':
-                if (ballLeft < gameContainer.clientWidth - ball.clientWidth) // Zorg ervoor dat de bal niet buiten het spelgebied gaat
-                    ball.style.left = (ballLeft + 10) + 'px';
+                ball.style.left = (ballLeft + 10) + 'px';
                 break;
         }
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
-            alert('Gefeliciteerd! Je hebt gewonnen!');
+            alert('Gefeliciteerd, je hebt de bakker bal in de hole gekregen!');
         }
     });
 
