@@ -1,9 +1,11 @@
-/* styles.css */
-body, html {
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    background-image: url(images/img1.webp);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
+/*
 #game-container {
     position: relative;
     width: 500px;
@@ -11,21 +13,48 @@ body, html {
     margin: 50px auto;
     border: 2px solid black;
 }
+*/
 #ball {
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    background-image: url(images/img2.png);
+    background-size: cover;
+    background-position: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 30%;
+    left: 70%;
     transform: translate(-50%, -50%);
 }
 #goal {
-    width: 50px;
-    height: 50px;
-    background-color: green;
+    width: 160px;
+    height: 100px;
+    background-color: transparent;
     position: absolute;
-    top: 80%;
+    top: 50%;
+    left: 26%;
+}
+
+img.flag {
+    position: absolute;
+    left: 27.5%;
+    top: 14%;
+}
+    
+.turnsoundup {
+    position: absolute;
     left: 80%;
+    top: 60%;
+    margin-top: 0%;
+
+}
+.icon {
+    font-size: 80px;
+
+}
+
+p#text{
+    font-size: 40px;
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
